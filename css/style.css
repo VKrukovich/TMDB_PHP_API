@@ -1,0 +1,13 @@
+body {
+    background-color: #F1F1F1;
+}
+#main-container {
+    background-color: #F1F1F1;
+    min-height: 550px;
+    padding-top: 60px;
+}
+#page-title {
+    margin-top: 0px;
+}
+img {max-width:100%;
+}

@@ -9,5 +9,5 @@ function renderPhpFile($filename, $vars = null) {
 }
 
 // usage
-echo renderPhpFile('cached_files/cache.php', $data_for_view);
+echo renderPhpFile('cache/cache.php', $data_for_view);
 ?>
