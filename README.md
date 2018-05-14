@@ -6,7 +6,7 @@ There are two methods to start the application (in web browser or in CLI).
 
 First in web browser.
 <ol>
-<li>Clone repository (FT2 branch);</li>
+<li>Clone repository (FT3 branch);</li>
 <li>Place folder TMDB_PHP_API into /www/ shared folder;</li>
 <li>Run web server;</li>
 <li> Set apikey;</li>
