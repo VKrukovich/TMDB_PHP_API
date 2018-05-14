@@ -64,10 +64,18 @@ include('configuration/configuration.php');
 			$movies = $tmdb->getNowPlayingMovies();
 
 			foreach ($movies as $movie){
-				$movie->getWeeklyNews($timeRangeStart,$timeRangeStop);
+				$checked_id = $movie->checkId();
+				if ($checked_id){
+					$extra_details = $tmdb->getDetails($checked_id);
+					$movie->runtime = $extra_details['runtime'];
+					$movie->genres = $extra_details['genres'];
+					$movie->displayDetails();
+					echo '<p><img src="' . $tmdb->getImageURL('w300') . $movie->poster_path . '"/></p>';
+
+				}
 			}
 
-					?>
+		?>
 		</ul>
 			<!-- Bootstrap JS -->
 			<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -76,7 +84,6 @@ include('configuration/configuration.php');
 </html>
 
 <?php
-
 $fp = fopen($cachefile, 'w');
 fwrite($fp, ob_get_contents());
 fclose($fp);

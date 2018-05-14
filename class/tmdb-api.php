@@ -1,6 +1,5 @@
 <?php
 include("Movie.php");
-include("Class.MovieDetails.inc");
 
 class TMDB{
 
@@ -48,6 +47,7 @@ class TMDB{
 
 	public function getImageURL($size = 'original') {
 		return $this->_config['images']['base_url'] . $size;
+
 	}
 
 
@@ -56,12 +56,11 @@ class TMDB{
 		$movies = array();
 
 		$result = $this->_call('movie/now_playing', '&page='. $page);
-
 			for ($page = 1; $page <= $result['total_pages']; $page++) {
 			$result = $this->_call('movie/now_playing', '&page='. $page);
 
-			foreach($result['results'] as $data){
-				$movies[] = new MovieDetails($data);
+				foreach($result['results'] as $data){
+					$movies[] = new Movie($data);
 
 			}
 
@@ -70,17 +69,8 @@ class TMDB{
 	}
 
 	public function getDetails ($id_movie){
-		$movies_details = array();
 		$results  = $this->_call_id('movie/'.$id_movie);
-		echo '<pre>'; print_r($results); echo '</pre>';
-
-		foreach($results as $result){
-			$movies_details[] = new MovieDetails($result);
-			echo '<pre>'; print_r($movies_details); echo '</pre>';
-
-			}
-
-		return $movies_details;
+		return $results;
 
 		}
 
