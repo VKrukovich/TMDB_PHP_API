@@ -15,6 +15,6 @@ First in web browser.
 </ol>
 
 Second in CLI.
-<ol>
-<li>php /www/TMDB_PHP_API/index.php</li>
-</ol>
+Perform command "cd /www/TMDB_PHP_API".
+And then:
+<p>php index.php</p>
